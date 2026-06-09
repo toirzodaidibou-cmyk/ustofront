@@ -1,0 +1,179 @@
+@import 'swiper/css';
+@import 'swiper/css/pagination';
+@import 'swiper/css/navigation';
+@import 'swiper/css/effect-fade';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', sans-serif;
+    --font-outfit: 'Outfit', sans-serif;
+
+    /* Base Colors - Clean White Theme */
+    --background: 60 9% 98%; /* #FAFAF9 */
+    --foreground: 20 14.3% 4.1%; /* #0a0a0a */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 20 14.3% 4.1%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14.3% 4.1%;
+    
+    /* Primary (Trust Blue) */
+    --primary: 221.2 83.2% 53.3%; /* #2563eb */
+    --primary-foreground: 210 40% 98%;
+    
+    /* Secondary / Accent (Action Orange) */
+    --secondary: 60 4.8% 95.9%;
+    --secondary-foreground: 24 9.8% 10%;
+    
+    --accent: 24.6 95% 53.1%; /* #ea580c */
+    --accent-foreground: 210 40% 98%;
+    
+    --muted: 60 4.8% 95.9%;
+    --muted-foreground: 25 5.3% 44.7%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 20 5.9% 90%;
+    --input: 20 5.9% 90%;
+    --ring: 24.6 95% 53.1%;
+    
+    --radius: 0.75rem;
+
+    /* Legacy UstoTJ Colors for backward compatibility */
+    --color-bg: #FAFAF9;
+    --color-surface: #FFFFFF;
+    --color-text: #111111;
+    --color-text-secondary: #6B7280;
+    --color-accent: #C2410C;
+    --color-accent-hover: #EA580C;
+    --color-border: #E5E5E5;
+    --color-dark: #0A0A0A;
+    --color-dark-surface: #111111;
+  }
+
+  .dark {
+    /* Base Colors - Premium Dark Theme */
+    --background: 0 0% 4%; /* Near black */
+    --foreground: 60 9.1% 97.8%; /* Off white */
+    
+    --card: 24 9.8% 10%; /* Slightly lighter than bg */
+    --card-foreground: 60 9.1% 97.8%;
+    
+    --popover: 20 14.3% 4.1%;
+    --popover-foreground: 60 9.1% 97.8%;
+    
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9.1% 97.8%;
+    
+    --accent: 24.6 95% 53.1%;
+    --accent-foreground: 60 9.1% 97.8%;
+    
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 24 5.4% 63.9%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 60 9.1% 97.8%;
+    
+    --border: 0 0% 15%; /* #262626 */
+    --input: 0 0% 15%;
+    --ring: 24.6 95% 53.1%;
+
+    /* Legacy Dark Overrides */
+    --color-bg: #111111;
+    --color-surface: #18181b;
+    --color-text: #f4f4f5;
+    --color-text-secondary: #a1a1aa;
+    --color-border: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter);
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit);
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark .glass {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/30 rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-muted-foreground/50;
+}
+
+/* Legacy Swiper overrides (kept so SwiperHero doesn't break) */
+.hero-swiper .swiper-pagination {
+  bottom: 24px !important;
+  text-align: left !important;
+  padding-left: 0 !important;
+  width: auto !important;
+}
+.hero-swiper .custom-pagination-bar {
+  width: 32px;
+  height: 3px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  margin: 0 4px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.hero-swiper .custom-pagination-bar.swiper-pagination-bullet-active {
+  width: 48px;
+  background: #ffffff;
+}
+
+.custom-swiper-pagination {
+  display: flex;
+  gap: 6px;
+}
+.custom-bullet {
+  width: 32px;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.custom-bullet-active {
+  background: #ffffff;
+  width: 48px;
+}
