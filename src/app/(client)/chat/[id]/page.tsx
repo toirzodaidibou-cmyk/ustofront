@@ -51,7 +51,7 @@ export default function ChatRoomPage({ params }: { params: { id: string } }) {
       setContactInfo(existing);
     } else {
       // Fetch details if not in contacts
-      fetch(`http://localhost:5000/api/v1/masters/${targetId}`)
+      fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/v1/masters/${targetId}`)
         .then(res => res.json())
         .then(data => {
           if (data && !data.error) {
@@ -354,7 +354,7 @@ export default function ChatRoomPage({ params }: { params: { id: string } }) {
                               try {
                                 const { useAuthStore } = await import('@/store/useAuthStore');
                                 const token = useAuthStore.getState().token;
-                                await fetch(`http://localhost:5000/api/v1/escrow/pay/${msg._id}`, {
+                                await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/v1/escrow/pay/${msg._id}`, {
                                   method: 'POST',
                                   headers: { 'Authorization': `Bearer ${token}` }
                                 });

@@ -5,7 +5,7 @@ import { Bell, AlertTriangle, Trophy, Gift, FileText, Megaphone, Check } from "l
 import { useAuthStore } from "@/store/useAuthStore";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000");
 
 const ICONS: Record<string, any> = {
   'General News': { icon: Megaphone, color: 'text-blue-500', bg: 'bg-blue-50' },

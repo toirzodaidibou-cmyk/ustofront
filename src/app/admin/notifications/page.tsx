@@ -6,7 +6,7 @@ import {
   Megaphone, AlertTriangle, Trophy, Gift, FileText, Bell, Check, Users, ShieldCheck, Send, Loader2 
 } from "lucide-react";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000");
 
 const TYPES = [
   { id: 'General News', icon: Megaphone, color: 'text-blue-500', bg: 'bg-blue-50' },

@@ -1,6 +1,6 @@
 import { UserProfile, useAuthStore } from '../store/useAuthStore';
 
-const API_URL = "http://localhost:5000/api/v1";
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/v1`;
 
 export const authService = {
   getToken(): string | null {
@@ -234,7 +234,7 @@ export const authService = {
     }
 
     const data = await res.json();
-    return data.url.startsWith('http') ? data.url : `http://localhost:5000${data.url}`;
+    return data.url.startsWith('http') ? data.url : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}${data.url}`;
   },
 
   async uploadPassport(file: File): Promise<string> {
@@ -251,7 +251,7 @@ export const authService = {
     }
 
     const data = await res.json();
-    return data.url.startsWith('http') ? data.url : `http://localhost:5000${data.url}`;
+    return data.url.startsWith('http') ? data.url : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}${data.url}`;
   },
 
   async uploadSelfie(file: File): Promise<string> {
@@ -268,7 +268,7 @@ export const authService = {
     }
 
     const data = await res.json();
-    return data.url.startsWith('http') ? data.url : `http://localhost:5000${data.url}`;
+    return data.url.startsWith('http') ? data.url : `${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}${data.url}`;
   },
 
   logout() {

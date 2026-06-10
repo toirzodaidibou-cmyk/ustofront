@@ -21,7 +21,7 @@ export default function SearchPage() {
     // In a real scenario, this would be an API call to search/filter
     const loadMasters = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/v1/masters');
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"}/api/v1/masters`);
         if (res.ok) {
           const data = await res.json();
           setMasters(data);

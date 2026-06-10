@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:5000";
+const API_BASE = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000");
 import { useAuthStore } from "@/store/useAuthStore";
 
 export const adminApi = {
