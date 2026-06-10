@@ -5,8 +5,8 @@ import { useRouter } from 'next/navigation';
 import { authService } from '@/services/auth.service';
 
 interface SidebarProps {
-  activeSection: 'dashboard' | 'bookings' | 'wallet';
-  setActiveSection: (section: 'dashboard' | 'bookings' | 'wallet') => void;
+  activeSection: 'dashboard' | 'bookings' | 'wallet' | 'chat';
+  setActiveSection: (section: 'dashboard' | 'bookings' | 'wallet' | 'chat') => void;
   bookingsCount: number;
   role?: 'client' | 'master';
 }

@@ -36,6 +36,7 @@ export interface UserProfile {
   selfiePhoto?: string;
   badges?: string[];
   walletBalance?: number;
+  skills?: string[];
 }
 
 interface AuthState {

@@ -182,8 +182,8 @@ export default function ProfileDashboard() {
       setEditExperience(currentUser.experience || "");
       setEditAvatar(currentUser.avatar || "");
       setEditAddress(currentUser.address || "");
-      setEditWhatsapp(currentUser.whatsapp || "");
-      setEditInstagram(currentUser.instagram || "");
+      setEditWhatsapp(currentUser.WhatsApp || "");
+      setEditInstagram(currentUser.Instagram || "");
       setEditWorkingHours(currentUser.workingHours || "");
       setWalletBalance(currentUser.walletBalance || 0);
       setTimeout(() => setLoading(false), 800);
